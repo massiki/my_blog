@@ -11,7 +11,7 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-8">
-          <h1 class="animate-fadeInUp">Selamat Datang di <span style="color: #4CC9F0;">MyBlog</span></h1>
+          <h1 class="animate-fadeInUp">Selamat Datang di <span style="color: #4CC9F0;">BlogF</span></h1>
           <p class="animate-fadeInUp animate-delay-1">
             Tempat berbagi artikel, pengalaman, dan pengetahuan seputar teknologi, programming, dan kehidupan sehari-hari.
           </p>
