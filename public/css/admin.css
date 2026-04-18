@@ -36,7 +36,7 @@ body.admin-body {
 
 .admin-sidebar .sidebar-brand {
     padding: 1.5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     font-size: 1.3rem;
     font-weight: 700;
     letter-spacing: -0.5px;
@@ -55,7 +55,7 @@ body.admin-body {
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    color: rgba(255,255,255,0.35);
+    color: rgba(255, 255, 255, 0.35);
     font-weight: 600;
 }
 
@@ -63,7 +63,7 @@ body.admin-body {
     display: flex;
     align-items: center;
     padding: 0.7rem 1.5rem;
-    color: rgba(255,255,255,0.6);
+    color: rgba(255, 255, 255, 0.6);
     font-size: 0.9rem;
     font-weight: 500;
     transition: all 0.2s ease;
@@ -79,7 +79,7 @@ body.admin-body {
 
 .admin-sidebar .nav-link:hover {
     color: white;
-    background: rgba(255,255,255,0.05);
+    background: rgba(255, 255, 255, 0.05);
     border-left-color: var(--admin-primary);
 }
 
@@ -123,14 +123,14 @@ body.admin-body {
     background: white;
     border-radius: 12px;
     padding: 1.5rem;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
     border: 1px solid #e9ecef;
     transition: all 0.3s ease;
 }
 
 .stat-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .stat-card .stat-icon {
@@ -180,7 +180,7 @@ body.admin-body {
     background: white;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
     border: 1px solid #e9ecef;
 }
 
@@ -215,7 +215,7 @@ body.admin-body {
     background: white;
     border-radius: 12px;
     padding: 2rem;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
     border: 1px solid #e9ecef;
 }
 
@@ -282,6 +282,25 @@ trix-editor {
 trix-editor:focus {
     border-color: var(--admin-primary) !important;
     box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
+}
+
+trix-editor blockquote {
+    border: 0 solid #ccc;
+    border-left-width: 0.3em;
+    margin-left: 0.3em;
+    padding-left: 0.6em;
+}
+
+trix-editor pre {
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+    font-family: monospace;
+    font-size: .9em;
+    padding: .5em;
+    white-space: pre;
+    background-color: #eee;
+    overflow-x: auto;
 }
 
 trix-toolbar {
@@ -373,7 +392,7 @@ trix-toolbar .trix-button.trix-active {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
     z-index: 999;
 }
 
