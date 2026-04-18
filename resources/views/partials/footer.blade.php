@@ -37,12 +37,21 @@
           </li>
           <li class="mb-2">
             <i class="bi bi-github me-2"></i>
-            <a href="#" target="_blank">GitHub</a>
+            <a href="https://github.com/massiki" target="_blank">GitHub</a>
           </li>
           <li class="mb-2">
             <i class="bi bi-linkedin me-2"></i>
-            <a href="#" target="_blank">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/fikri-amrullah-5583b52b6/" target="_blank">LinkedIn</a>
           </li>
+          <li class="mb-2">
+            <i class="bi bi-instagram me-2"></i>
+            <a href="https://www.instagram.com/fikri.amrulloh.15/" target="_blank">Instagram</a>
+          </li>
+          <li class="mb-2">
+            <i class="bi bi-whatsapp me-2"></i>
+            <a href="https://wa.me/6285294532451" target="_blank">Whatsapp</a>
+          </li>
+
         </ul>
       </div>
     </div>
