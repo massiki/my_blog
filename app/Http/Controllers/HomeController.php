@@ -15,9 +15,9 @@ class HomeController extends Controller
     public function index()
     {
         $posts = Post::published()
-                     ->with(['category', 'user']) // Eager loading untuk performa
-                     ->latest('published_at')     // Urutkan dari terbaru
-                     ->paginate(9);
+            ->with(['category', 'user']) // Eager loading untuk performa
+            ->latest('published_at')     // Urutkan dari terbaru
+            ->paginate(8);
 
         $categories = Category::withCount(['posts' => function ($query) {
             $query->where('status', 'published');
