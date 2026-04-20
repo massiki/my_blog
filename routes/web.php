@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PostController as AdminPostController;
 use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
 use App\Http\Controllers\Admin\ImageUploadController;
+use App\Http\Controllers\Admin\ImageRemoveController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,4 +56,7 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
 
     // Upload gambar dari Trix Editor
     Route::post('/upload-image', [ImageUploadController::class, 'store'])->name('upload.image');
+
+    // Remove gambar dari Trix Editor
+    Route::post('/remove-image', [ImageRemoveController::class, 'delete'])->name('remove.image');
 });

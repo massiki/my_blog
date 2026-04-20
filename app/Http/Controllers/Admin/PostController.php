@@ -61,7 +61,7 @@ class PostController extends Controller
         $thumbnailPath = null;
         if ($request->hasFile('thumbnail')) {
             $thumbnailPath = $request->file('thumbnail')
-                                     ->store('thumbnails', 'public');
+                ->store('thumbnails', 'public');
         }
 
         // Buat post baru
@@ -82,7 +82,7 @@ class PostController extends Controller
         }
 
         return redirect()->route('admin.posts.index')
-                         ->with('success', 'Artikel berhasil dibuat!');
+            ->with('success', 'Artikel berhasil dibuat!');
     }
 
     /**
@@ -124,7 +124,7 @@ class PostController extends Controller
                 Storage::disk('public')->delete($post->thumbnail);
             }
             $thumbnailPath = $request->file('thumbnail')
-                                     ->store('thumbnails', 'public');
+                ->store('thumbnails', 'public');
         }
 
         // Jika checkbox "hapus thumbnail" dicentang
@@ -166,7 +166,7 @@ class PostController extends Controller
         }
 
         return redirect()->route('admin.posts.index')
-                         ->with('success', 'Artikel berhasil diperbarui!');
+            ->with('success', 'Artikel berhasil diperbarui!');
     }
 
     /**
@@ -175,6 +175,42 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        // Cari gambar dalam konten, hapus file gambar jika ada sebelum post dihapus
+        $content = $post->content;
+
+        // Ambil semua url image yang berbentuk <figure ... <img src="..." ...> ... </figure>
+        // atau <img src="..."> langsung di html
+        $imageUrls = [];
+
+        // Ambil semua <img src="...">, regex mencari semua src
+        if (preg_match_all('/<img[^>]+src="([^"]+)"/i', $content, $matches)) {
+            $imageUrls = array_merge($imageUrls, $matches[1]);
+        }
+
+        // Selain <img>, juga cek jika ada Trix attachment dengan data-trix-attachment (misal dalam <figure>)
+        if (preg_match_all('/data-trix-attachment=[\'"]([^\'"]+)[\'"]/i', $content, $matches)) {
+            foreach ($matches[1] as $jsonStr) {
+                $json = json_decode(htmlspecialchars_decode($jsonStr), true);
+                if (is_array($json) && isset($json['url'])) {
+                    $imageUrls[] = $json['url'];
+                }
+            }
+        }
+
+        // Hapus file gambar jika ditemukan di url yang terkait storage local
+        foreach ($imageUrls as $url) {
+            // Cek apakah url file storage lokal
+            // Misal: /storage/uploads/xxx.jpeg
+            if (preg_match('#^/storage/#', $url)) {
+                // Ubah menjadi path relatif sesuai storage/app/public/
+                $relativePath = ltrim(preg_replace('#^/?storage/#', '', $url), '/');
+                // Hapus jika file ada
+                if (Storage::disk('public')->exists($relativePath)) {
+                    Storage::disk('public')->delete($relativePath);
+                }
+            }
+        }
+
         // Hapus thumbnail dari storage
         if ($post->thumbnail) {
             Storage::disk('public')->delete($post->thumbnail);
@@ -187,7 +223,7 @@ class PostController extends Controller
         $post->delete();
 
         return redirect()->route('admin.posts.index')
-                         ->with('success', 'Artikel berhasil dihapus!');
+            ->with('success', 'Artikel berhasil dihapus!');
     }
 
     /**

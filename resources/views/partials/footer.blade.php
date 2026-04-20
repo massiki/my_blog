@@ -5,10 +5,10 @@
       {{-- About --}}
       <div class="col-lg-4 mb-4">
         <div class="footer-brand mb-3">
-          <i class="bi bi-journal-richtext me-1"></i> Blog<span>F</span>
+          Blog<span>F</span>
         </div>
-        <p class="mb-0">Blog pribadi untuk berbagi artikel, pengalaman, dan pengetahuan seputar teknologi dan
-          kehidupan.</p>
+        <p class="mb-0">Blog pribadi untuk berbagi artikel, pengalaman, pengetahuan, teknologi maupun kehidupan sehari
+          hari.</p>
       </div>
 
       {{-- Quick Links --}}
